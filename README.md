@@ -1,5 +1,9 @@
 # OOPD Processing Game Engine (OOPG) (TankBattle Game)
 
+## Ontwikkelaars TankBattle Game
+*danohengeveld
+*Joppe Ruessink
+
 ## API
 De volledige API van de engine is online beschikbaar: [API OOPG](http://hanica.github.io/oopg/)
 
