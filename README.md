@@ -1,4 +1,4 @@
-# OOPD Processing Game Engine (OOPG) (TankBattle Game) [![Build Status](https://travis-ci.org/HANICA/oopg.svg?branch=master)](https://travis-ci.org/HANICA/oopg) [![Coverage Status](https://coveralls.io/repos/github/HANICA/oopg/badge.svg?branch=master)](https://coveralls.io/github/HANICA/oopg?branch=master)
+# OOPD Processing Game Engine (OOPG) (TankBattle Game)
 
 ## API
 De volledige API van de engine is online beschikbaar: [API OOPG](http://hanica.github.io/oopg/)
