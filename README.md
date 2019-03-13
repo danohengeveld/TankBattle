@@ -1,7 +1,7 @@
 # OOPD Processing Game Engine (OOPG) (TankBattle Game) [![Build Status](https://travis-ci.org/HANICA/oopg.svg?branch=master)](https://travis-ci.org/HANICA/oopg) [![Coverage Status](https://coveralls.io/repos/github/HANICA/oopg/badge.svg?branch=master)](https://coveralls.io/github/HANICA/oopg?branch=master)
 
 ## API
-De volledige API van is online beschikbaar: [API OOPG](http://hanica.github.io/oopg/)
+De volledige API van de engine is online beschikbaar: [API OOPG](http://hanica.github.io/oopg/)
 
 ## Oorspronkelijke ontwikkelaars oopg engine
 De engine werd gebaseerd op de oude [Android-engine](https://github.com/ddoa/game-api-android) die ontwikkeld werd onder begeleiding van (en door) Paul Bergervoet.
