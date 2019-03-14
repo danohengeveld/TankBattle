@@ -6,8 +6,7 @@ import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
 
 public class Explosion extends AnimatedSpriteObject implements IAlarmListener {
-
-	private Alarm a;
+	
 	private TankBattle world;
 	
 	public Explosion(TankBattle world) {

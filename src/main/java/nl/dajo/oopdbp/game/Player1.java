@@ -1,7 +1,6 @@
 package nl.dajo.oopdbp.game;
 
 import java.util.ArrayList;
-
 import nl.han.ica.oopg.objects.Sprite;
 
 public class Player1 extends Player {

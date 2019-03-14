@@ -53,6 +53,7 @@ public class TankBattle extends GameEngine {
 		TileType<BoardsTile> boardTileTypeMetalCrate = new TileType<>(BoardsTile.class, MetalCrate);			
 		TileType<BoardsTile> boardTileTypeBrownTree = new TileType<>(BoardsTile.class, BrownTree);
 		
+		@SuppressWarnings("rawtypes")
 		TileType[] tileTypes = {boardTileTypeMetalCrate, boardTileTypeBrownTree};
 		int tilesMap[][] = {
 				{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},

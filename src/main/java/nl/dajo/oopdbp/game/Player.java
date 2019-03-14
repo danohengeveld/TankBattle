@@ -1,6 +1,5 @@
 package nl.dajo.oopdbp.game;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import nl.han.ica.oopg.alarm.Alarm;

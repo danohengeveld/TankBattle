@@ -1,7 +1,6 @@
 package nl.dajo.oopdbp.game;
 
 import java.util.ArrayList;
-
 import nl.han.ica.oopg.objects.Sprite;
 
 public class Player2 extends Player {
@@ -9,6 +8,7 @@ public class Player2 extends Player {
 	private ArrayList<Key> keys;
 	final int speed = 2;
 
+	@SuppressWarnings("static-access")
 	public Player2(TankBattle world) {
 		super(world, new Sprite(TankBattle.MEDIA_URL.concat("tank_red.png")));
 		this.keys = new ArrayList<Key>();
@@ -19,6 +19,7 @@ public class Player2 extends Player {
 		keys.add(new Key((char) world.ENTER));
 	}
 	
+	@SuppressWarnings("static-access")
 	public void loop() {
 		for(Key k : keys) {
 			if(k.isPressed()) {
@@ -45,7 +46,6 @@ public class Player2 extends Player {
 		}
 	}
 
-	@SuppressWarnings("static-access")
 	public void keyPressed(int keyCode, char key) {
 		for(Key k : keys) {
 			if(keyCode == k.key) {
@@ -54,7 +54,6 @@ public class Player2 extends Player {
 		}	
 	}
 
-	@SuppressWarnings("static-access")
 	public void keyReleased(int keyCode, char key) {
 		for(Key k : keys) {
 			if(keyCode == k.key) {
