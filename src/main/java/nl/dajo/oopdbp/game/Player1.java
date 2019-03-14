@@ -1,11 +1,16 @@
 package nl.dajo.oopdbp.game;
 
+import java.util.ArrayList;
+
 import nl.han.ica.oopg.objects.Sprite;
 
 public class Player1 extends Player {
 
+	private ArrayList<Key> keys;
+	
 	public Player1(TankBattle world) {
 		super(world, new Sprite(TankBattle.MEDIA_URL.concat("tank_blue.png")));
+		this.keys = new ArrayList<Key>();
 	}
 
 	public void keyPressed(int keyCode, char key) {

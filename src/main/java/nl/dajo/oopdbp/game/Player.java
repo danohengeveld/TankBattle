@@ -1,13 +1,21 @@
 package nl.dajo.oopdbp.game;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import nl.han.ica.oopg.collision.CollidedTile;
+import nl.han.ica.oopg.collision.CollisionSide;
+import nl.han.ica.oopg.collision.ICollidableWithTiles;
+import nl.han.ica.oopg.exceptions.TileNotFoundException;
 //import nl.han.ica.oopg.alarm.Alarm;
 //import nl.han.ica.oopg.alarm.IAlarmListener;
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.TextObject;
+import processing.core.PVector;
 
-public abstract class Player extends AnimatedSpriteObject{
-
+public abstract class Player extends AnimatedSpriteObject implements ICollidableWithTiles{
+	
 	protected TankBattle world;
 	private int hp = 100;
 //	private Alarm rt;
@@ -80,5 +88,47 @@ public abstract class Player extends AnimatedSpriteObject{
 	public void hit() {
 		this.hp -= 5;
 	}
+	
+	@Override
+    public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
+        PVector vector;
+
+        for (CollidedTile ct : collidedTiles) {
+            if (ct.getTile() instanceof BoardsTile) {
+                if (CollisionSide.TOP.equals(ct.getCollisionSide())) {
+                    try {
+                        vector = world.getTileMap().getTilePixelLocation(ct.getTile());
+                        setY(vector.y - getHeight());
+                    } catch (TileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (CollisionSide.RIGHT.equals(ct.getCollisionSide())) {
+                    try {
+                        vector = world.getTileMap().getTilePixelLocation(ct.getTile());
+                        setX(vector.x + world.tileSize);
+                    } catch (TileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (CollisionSide.LEFT.equals(ct.getCollisionSide())) {
+                    try {
+                        vector = world.getTileMap().getTilePixelLocation(ct.getTile());
+                        setX(vector.x - getWidth());
+                    } catch (TileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (CollisionSide.BOTTOM.equals(ct.getCollisionSide())) {
+                    try {
+                        vector = world.getTileMap().getTilePixelLocation(ct.getTile());
+                        setY(vector.y + world.tileSize);
+                    } catch (TileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
 
 }
