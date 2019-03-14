@@ -14,7 +14,5 @@ public class Key {
 
 	public void setPressed(boolean isPressed) {
 		this.isPressed = isPressed;
-	}
-	
-	
+	}	
 }
