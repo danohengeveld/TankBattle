@@ -1,18 +1,22 @@
 package nl.dajo.oopdbp.game;
 
+//import nl.han.ica.oopg.alarm.Alarm;
+//import nl.han.ica.oopg.alarm.IAlarmListener;
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.TextObject;
 
-public abstract class Player extends AnimatedSpriteObject {
+public abstract class Player extends AnimatedSpriteObject{
 
 	protected TankBattle world;
-	protected int hp;
+	private int hp = 100;
+//	private Alarm rt;
+	
 
 	public Player(TankBattle world, Sprite s) {
 		super(s, 4);
 		this.world = world;
-		hp = 100;
+//		rt = new Alarm(null, direction);
 	}
 
 	@Override
@@ -51,7 +55,7 @@ public abstract class Player extends AnimatedSpriteObject {
 	}
 
 	public void shoot(Player p) {
-		final int speed = 10;
+		final int speed = 20;
 		Shell s = new Shell(world, p);
 		if (this.getCurrentFrameIndex() == 0 || this.getCurrentFrameIndex() == 360) {
 			s.setCurrentFrameIndex(0);

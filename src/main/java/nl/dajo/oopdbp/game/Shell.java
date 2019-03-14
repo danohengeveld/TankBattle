@@ -25,7 +25,9 @@ public class Shell extends AnimatedSpriteObject implements ICollidableWithGameOb
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
+		if (getX() <= 0 || getY() <= 0 || getX() >= world.width - getWidth() || getY() >= world.height - getHeight()) {
+			world.deleteGameObject(this);
+		}
 
 	}
 
