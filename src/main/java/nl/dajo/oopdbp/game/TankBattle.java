@@ -71,7 +71,8 @@ public class TankBattle extends GameEngine {
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
+		p1.loop();
+		p2.loop();
 
 	}
 

@@ -19,7 +19,7 @@ public class Player1 extends Player {
 		keys.add(new Key((char) 32));
 	}
 	
-	public void update() {
+	public void loop() {
 		for(Key k : keys) {
 			if(k.isPressed()) {
 				if(k.key == 65) {

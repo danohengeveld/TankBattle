@@ -19,7 +19,7 @@ public class Player2 extends Player {
 		keys.add(new Key((char) world.ENTER));
 	}
 	
-	public void update() {
+	public void loop() {
 		for(Key k : keys) {
 			if(k.isPressed()) {
 				if(k.key == world.LEFT) {
