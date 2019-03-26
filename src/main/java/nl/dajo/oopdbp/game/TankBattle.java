@@ -21,7 +21,6 @@ public class TankBattle extends GameEngine {
 	public static void main(String[] args) {
 		TankBattle world = new TankBattle();
 		world.runSketch();
-
 	}
 
 	@Override
@@ -34,39 +33,31 @@ public class TankBattle extends GameEngine {
 
 		addGameObject(p1, 0, 0);
 		addGameObject(p2, worldWidth, worldHeight);
-		addGameObject(new FPSCounter(worldWidth-30, 30));
-		
+		addGameObject(new FPSCounter(worldWidth - 30, 30));
+
 		createMap();
 
 		View view = new View(worldWidth, worldHeight);
 		view.setBackground(loadImage(MEDIA_URL.concat("TankBattle-BG.png")));
-		
+
 		setView(view);
 		size(worldWidth, worldHeight);
-
 	}
-	
+
 	private void createMap() {
 		Sprite MetalCrate = new Sprite(MEDIA_URL.concat("crateMetal.png"));
 		Sprite BrownTree = new Sprite(MEDIA_URL.concat("treeBrown_large.png"));
-		
-		TileType<BoardsTile> boardTileTypeMetalCrate = new TileType<>(BoardsTile.class, MetalCrate);			
+
+		TileType<BoardsTile> boardTileTypeMetalCrate = new TileType<>(BoardsTile.class, MetalCrate);
 		TileType<BoardsTile> boardTileTypeBrownTree = new TileType<>(BoardsTile.class, BrownTree);
-		
+
 		@SuppressWarnings("rawtypes")
-		TileType[] tileTypes = {boardTileTypeMetalCrate, boardTileTypeBrownTree};
-		int tilesMap[][] = {
-				{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-				{-1, 1, -1, -1, -1, -1, -1, -1, 0, -1},
-				{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-				{-1, -1, -1, -1, -1, 1, -1, -1, -1, -1},
-				{-1, -1, -1, 1, -1, -1, -1, -1, -1, -1},
-				{-1, -1, -1, -1, -1, -1, 1, -1, -1, -1},
-				{-1, -1, -1, -1, 1, -1, -1, -1, -1, -1},
-				{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-				{-1, 0, -1, -1, -1, -1, -1, -1, 1, -1},
-				{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-		};		
+		TileType[] tileTypes = { boardTileTypeMetalCrate, boardTileTypeBrownTree };
+		int tilesMap[][] = { { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, { -1, 1, -1, -1, -1, -1, -1, -1, 0, -1 },
+				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, 1, -1, -1, -1, -1 },
+				{ -1, -1, -1, 1, -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1, 1, -1, -1, -1 },
+				{ -1, -1, -1, -1, 1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+				{ -1, 0, -1, -1, -1, -1, -1, -1, 1, -1 }, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, };
 		tileMap = new TileMap(tileSize, tileTypes, tilesMap);
 	}
 
@@ -76,5 +67,4 @@ public class TankBattle extends GameEngine {
 		p2.loop();
 
 	}
-
 }

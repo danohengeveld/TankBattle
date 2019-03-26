@@ -21,28 +21,33 @@ public class Shell extends AnimatedSpriteObject implements ICollidableWithGameOb
 
 	@Override
 	public void update() {
-		if (getX() <= 0 || getY() <= 0 || getX() >= world.width - getWidth() || getY() >= world.height - getHeight()) {
+		if (checkWorldBorder()) {
 			world.deleteGameObject(this);
 		}
+	}
 
+	public boolean checkWorldBorder() {
+		if (getX() <= 0 || getY() <= 0 || getX() >= world.width - getWidth() || getY() >= world.height - getHeight()) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
-		for(GameObject go : collidedGameObjects) {
-			if(go instanceof Player && !(go == this.p)) {
+		for (GameObject go : collidedGameObjects) {
+			if (go instanceof Player && !(go == this.p)) {
 				world.deleteGameObject(this);
 				((Player) go).hit();
 				System.out.println("Hit");
 			}
 		}
-		
+
 	}
 
 	@Override
 	public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
 		world.deleteGameObject(this);
-		
 	}
 
 }
