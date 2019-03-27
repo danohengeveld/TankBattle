@@ -18,6 +18,9 @@ public class Player1 extends Player {
 		keys.add(new Key((char) 32));
 	}
 	
+	/**
+     * Loops and changes direction and speed of player.
+     */
 	public void loop() {
 		for(Key k : keys) {
 			if(k.isPressed()) {
@@ -43,7 +46,10 @@ public class Player1 extends Player {
 			}
 		}
 	}
-
+	
+	/**
+     * For each key in keys sets isPressed() to true.
+     */
 	public void keyPressed(int keyCode, char key) {
 		for(Key k : keys) {
 			if(keyCode == k.key) {
@@ -52,6 +58,9 @@ public class Player1 extends Player {
 		}
 	}		
 
+	/**
+     * For each key in keys sets isPressed() to false.
+     */
 	public void keyReleased(int keyCode, char key) {
 		for(Key k : keys) {
 			if(keyCode == k.key) {

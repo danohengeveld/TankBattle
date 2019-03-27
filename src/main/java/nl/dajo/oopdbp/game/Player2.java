@@ -19,6 +19,9 @@ public class Player2 extends Player {
 		keys.add(new Key((char) world.ENTER));
 	}
 	
+	/**
+     * Loops and changes direction and speed of player.
+     */
 	@SuppressWarnings("static-access")
 	public void loop() {
 		for(Key k : keys) {
@@ -46,6 +49,9 @@ public class Player2 extends Player {
 		}
 	}
 
+	/**
+     * For each key in keys sets isPressed() to true.
+     */
 	public void keyPressed(int keyCode, char key) {
 		for(Key k : keys) {
 			if(keyCode == k.key) {
@@ -54,6 +60,9 @@ public class Player2 extends Player {
 		}	
 	}
 
+	/**
+     * For each key in keys sets isPressed() to false.
+     */
 	public void keyReleased(int keyCode, char key) {
 		for(Key k : keys) {
 			if(keyCode == k.key) {

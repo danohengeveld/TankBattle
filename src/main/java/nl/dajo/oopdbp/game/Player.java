@@ -75,7 +75,11 @@ public abstract class Player extends AnimatedSpriteObject implements ICollidable
 			ammo = 1;
 		}
 	}
-
+	
+	/**
+	 * Returns true or false based on player existing or not.
+     * @returns Returns true or false based on player existing or not.
+     */
 	public boolean checkExists() {
 		for (GameObject go : world.getGameObjectItems()) {
 			if (go == this) {
@@ -84,7 +88,11 @@ public abstract class Player extends AnimatedSpriteObject implements ICollidable
 		}
 		return false;
 	}
-
+	
+	/**
+     * Shoots a shell from the current position of the player into the direction the player is facing.
+     * @param Player p
+     */
 	public void shoot(Player p) {
 		final int speed = 10;
 		if (checkExists()) {
@@ -114,8 +122,14 @@ public abstract class Player extends AnimatedSpriteObject implements ICollidable
 		}
 	}
 
+	/**
+     * Handles the actions when a player and a shell collide.
+     */
 	public void hit() {
 		this.hp -= 10;
+		Hit hit = new Hit(world);
+		world.addGameObject(hit, getX() + this.getWidth() / 2 - hit.getWidth() / 2,
+				getY() + this.getHeight() / 2 - hit.getHeight() / 2);
 	}
 
 	@Override
@@ -159,5 +173,4 @@ public abstract class Player extends AnimatedSpriteObject implements ICollidable
 			}
 		}
 	}
-
 }

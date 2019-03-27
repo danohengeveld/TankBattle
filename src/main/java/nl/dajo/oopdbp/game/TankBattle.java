@@ -22,7 +22,7 @@ public class TankBattle extends GameEngine {
 		TankBattle world = new TankBattle();
 		world.runSketch();
 	}
-
+	
 	@Override
 	public void setupGame() {
 		worldWidth = 640;
@@ -44,6 +44,9 @@ public class TankBattle extends GameEngine {
 		size(worldWidth, worldHeight);
 	}
 
+	/**
+     * Initializes the tiles map.
+     */
 	private void createMap() {
 		Sprite MetalCrate = new Sprite(MEDIA_URL.concat("crateMetal.png"));
 		Sprite BrownTree = new Sprite(MEDIA_URL.concat("treeBrown_large.png"));
@@ -53,11 +56,16 @@ public class TankBattle extends GameEngine {
 
 		@SuppressWarnings("rawtypes")
 		TileType[] tileTypes = { boardTileTypeMetalCrate, boardTileTypeBrownTree };
-		int tilesMap[][] = { { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, { -1, 1, -1, -1, -1, -1, -1, -1, 0, -1 },
-				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, 1, -1, -1, -1, -1 },
-				{ -1, -1, -1, 1, -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1, 1, -1, -1, -1 },
-				{ -1, -1, -1, -1, 1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
-				{ -1, 0, -1, -1, -1, -1, -1, -1, 1, -1 }, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, };
+		int tilesMap[][] = { { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, 
+				{ -1, 1, -1, -1, -1, -1, -1, -1, 0, -1 },
+				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, 
+				{ -1, -1, -1, -1, -1, 1, -1, -1, -1, -1 },
+				{ -1, -1, -1, 1, -1, -1, -1, -1, -1, -1 }, 
+				{ -1, -1, -1, -1, -1, -1, 1, -1, -1, -1 },
+				{ -1, -1, -1, -1, 1, -1, -1, -1, -1, -1 }, 
+				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+				{ -1, 0, -1, -1, -1, -1, -1, -1, 1, -1 }, 
+				{ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }, };
 		tileMap = new TileMap(tileSize, tileTypes, tilesMap);
 	}
 

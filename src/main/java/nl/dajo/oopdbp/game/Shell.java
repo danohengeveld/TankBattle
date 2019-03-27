@@ -24,11 +24,33 @@ public class Shell extends AnimatedSpriteObject implements ICollidableWithGameOb
 		if (checkWorldBorder()) {
 			world.deleteGameObject(this);
 		}
+		if (!checkExists()) {
+			world.deleteGameObject(this);
+		}
 	}
 
+	/**
+	 * Returns true or false based on shell/bullet hitting border or not.
+     * @returns Returns true or false based on shell/bullet hitting border or not.
+     */
 	public boolean checkWorldBorder() {
 		if (getX() <= 0 || getY() <= 0 || getX() >= world.width - getWidth() || getY() >= world.height - getHeight()) {
 			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Returns true or false based on existence of player that shot this shell.
+     * @returns Returns true or false based on existence of player that shot this shell.
+     */
+	public boolean checkExists() {
+		for (GameObject go : world.getGameObjectItems()) {
+			if (go instanceof Player) {
+				if (go == p) {
+					return true;
+				}
+			}
 		}
 		return false;
 	}
