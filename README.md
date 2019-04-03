@@ -3,7 +3,7 @@
 ##TankBattle Game
 
 Versie:
-0.1
+1.1
 
 Ontwikkerlaars:
 * danohengeveld
