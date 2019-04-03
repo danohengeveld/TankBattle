@@ -1,28 +1,32 @@
 package nl.dajo.oopdbp.game;
 
+/**
+ * The instances created of this class are the control keys of the players.
+ * 
+ * @author dheng, jruessink
+ */
 public class Key {
 	public char key;
 	private boolean isPressed;
-	
-	Key(char key){
+
+	Key(char key) {
 		this.key = key;
 	}
 
 	/**
-	 * Returns true or false based on if key is pressed.
-     * @returns Returns true or false based on if key is pressed.
-     */
+	 * @return Returns true or false based on if key is pressed.
+	 */
 	public boolean isPressed() {
 		return isPressed;
 	}
 
 	/**
-     * Set isPressed() to true or false.
-     * @param boolean
-     */
+	 * Set isPressed() to true or false.
+	 * 
+	 * @param isPressed boolean
+	 */
 	public void setPressed(boolean isPressed) {
 		this.isPressed = isPressed;
 	}
-	
-	
+
 }

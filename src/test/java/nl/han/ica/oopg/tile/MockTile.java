@@ -4,7 +4,7 @@ import nl.han.ica.oopg.objects.Sprite;
 
 public class MockTile extends Tile{
     /**
-     * @param sprite
+     * @param	sprite	SpriteObject
      */
     public MockTile(Sprite sprite) {
         super(sprite);

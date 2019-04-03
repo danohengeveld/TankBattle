@@ -14,11 +14,17 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.TextObject;
 import processing.core.PVector;
 
+/**
+ * Superclass of both players, containing shared methods and variables.
+ * 
+ * @author dheng, jruessink
+ */
 public abstract class Player extends AnimatedSpriteObject implements ICollidableWithTiles, IAlarmListener {
 
 	protected TankBattle world;
 	private int hp = 100;
 	private int ammo = 1;
+	protected final int speed = 2;
 
 	public Player(TankBattle world, Sprite s) {
 		super(s, 4);
@@ -27,40 +33,8 @@ public abstract class Player extends AnimatedSpriteObject implements ICollidable
 
 	@Override
 	public void update() {
-		if (getX() <= 0) {
-			setxSpeed(0);
-			setX(0);
-		}
-		if (getY() <= 0) {
-			setySpeed(0);
-			setY(0);
-		}
-		if (getX() >= world.width - getWidth()) {
-			setxSpeed(0);
-			setX(world.width - getWidth());
-		}
-		if (getY() >= world.height - getHeight()) {
-			setySpeed(0);
-			setY(world.height - getHeight());
-		}
-
-		if (this.hp <= 0) {
-
-			Explosion ex = new Explosion(world);
-			world.addGameObject(ex, this.getX(), this.getY());
-
-			String msg;
-			if (this instanceof Player1) {
-				msg = "Red WON!!";
-			} else {
-				msg = "Blue WON!!";
-			}
-
-			TextObject to = new TextObject(msg, 50);
-			to.setForeColor(255, 255, 255, 255);
-			world.addGameObject(to, 5, 55);
-			world.deleteGameObject(this);
-		}
+		limitBorder();
+		onDie();
 	}
 
 	private void startAlarm() {
@@ -75,11 +49,10 @@ public abstract class Player extends AnimatedSpriteObject implements ICollidable
 			ammo = 1;
 		}
 	}
-	
+
 	/**
-	 * Returns true or false based on player existing or not.
-     * @returns Returns true or false based on player existing or not.
-     */
+	 * @return Returns true or false based on player existing or not.
+	 */
 	public boolean checkExists() {
 		for (GameObject go : world.getGameObjectItems()) {
 			if (go == this) {
@@ -88,11 +61,13 @@ public abstract class Player extends AnimatedSpriteObject implements ICollidable
 		}
 		return false;
 	}
-	
+
 	/**
-     * Shoots a shell from the current position of the player into the direction the player is facing.
-     * @param Player p
-     */
+	 * Shoots a shell from the current position of the player into the direction the
+	 * player is facing.
+	 * 
+	 * @param p Player
+	 */
 	public void shoot(Player p) {
 		final int speed = 10;
 		if (checkExists()) {
@@ -123,13 +98,60 @@ public abstract class Player extends AnimatedSpriteObject implements ICollidable
 	}
 
 	/**
-     * Handles the actions when a player and a shell collide.
-     */
+	 * Handles the actions when a player and a shell collide.
+	 */
 	public void hit() {
 		this.hp -= 10;
 		Hit hit = new Hit(world);
 		world.addGameObject(hit, getX() + this.getWidth() / 2 - hit.getWidth() / 2,
 				getY() + this.getHeight() / 2 - hit.getHeight() / 2);
+	}
+
+	/**
+	 * Checks if player has HP level of 0 (or lower to prevent errors) and handles
+	 * the die event
+	 */
+	private void onDie() {
+		if (this.hp <= 0) {
+
+			Explosion ex = new Explosion(world);
+			world.addGameObject(ex, this.getX(), this.getY());
+
+			String msg;
+			if (this instanceof Player1) {
+				msg = "Red WON!!";
+			} else {
+				msg = "Blue WON!!";
+			}
+
+			TextObject to = new TextObject(msg, 50);
+			to.setForeColor(255, 255, 255, 255);
+			world.addGameObject(to, 5, 55);
+			world.deleteGameObject(this);
+		}
+	}
+
+	/**
+	 * Checks for the object reaching the border and limits it. (Needs to be called
+	 * in the "update" to work)!
+	 */
+	private void limitBorder() {
+		if (getX() <= 0) {
+			setxSpeed(0);
+			setX(0);
+		}
+		if (getY() <= 0) {
+			setySpeed(0);
+			setY(0);
+		}
+		if (getX() >= world.width - getWidth()) {
+			setxSpeed(0);
+			setX(world.width - getWidth());
+		}
+		if (getY() >= world.height - getHeight()) {
+			setySpeed(0);
+			setY(world.height - getHeight());
+		}
 	}
 
 	@Override
@@ -172,5 +194,9 @@ public abstract class Player extends AnimatedSpriteObject implements ICollidable
 				}
 			}
 		}
+	}
+	
+	public int getHP() {
+		return hp;
 	}
 }

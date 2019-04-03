@@ -33,6 +33,8 @@ public class FPSCounter extends Dashboard implements IAlarmListener {
         g.beginDraw();
 
         fpsCounter += 1;
+        g.fill(255);
+        g.textSize(10);
         g.text(fps, x, y);
 
         g.endDraw();

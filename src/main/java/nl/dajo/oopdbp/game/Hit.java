@@ -5,6 +5,12 @@ import nl.han.ica.oopg.alarm.IAlarmListener;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
 
+/**
+ * The instances created of the class are the hit markers you see when a player
+ * gets hit. Sets the sprite image for the hit.
+ * 
+ * @author dheng, jruessink
+ */
 public class Hit extends SpriteObject implements IAlarmListener {
 
 	private TankBattle world;
