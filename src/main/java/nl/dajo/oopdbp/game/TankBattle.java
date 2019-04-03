@@ -1,12 +1,8 @@
 package nl.dajo.oopdbp.game;
 
-import java.awt.Color;
-
-import nl.han.ica.oopg.dashboard.Dashboard;
 import nl.han.ica.oopg.dashboard.FPSCounter;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.TextObject;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
@@ -22,7 +18,6 @@ public class TankBattle extends GameEngine {
 
 	private Player1 p1;
 	private Player2 p2;
-	private Dashboard db;
 	public int worldWidth;
 	public int worldHeight;
 	public final int tileSize = 64;
