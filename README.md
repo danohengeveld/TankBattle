@@ -6,7 +6,7 @@ Versie:
 1.1
 
 Ontwikkerlaars:
-* danohengeveld
+* Dani Hengeveld
 * Joppe Ruessink
 
 ## API
